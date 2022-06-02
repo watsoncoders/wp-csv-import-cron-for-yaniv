@@ -69,37 +69,29 @@ class CsvImport {
                 'ID' => $post_id,
                 'post_content' => $postcontent,
                 'post_status' => 'publish',
-                'post_type' => 'post'
+                'post_type' => 'product'
                 );
                 wp_update_post($my_post);
             }
             /* here you can define your meta key and values */
-            $metaarr = array('board' => $row[13],
-                'zip' => $row[330],
+            $metaarr = array('product_name' => $row[13],
+			     'product_description' => $row[554],
+                'product_id' => $row[3],
                 'product_cat' => $row[184],
                 'style' => $row[279],
-                'gar' => $row[77],
-                'bath_tot' => $row[10],
-                'lsc' => $row[121],
-                'br' => $row[15],
-                'dom' => $row[56],
-                'fuel' => $row[76],
+                'some_tax' => $row[76],
                 'a_c' => $row[0],
                 'ml_num' => $row[130],
                 'park_spcs' => $row[167],
-					 'maint'  => $row[124],
-					 'square_footage'  => $row[466],
-					 'taxes' =>  $row[282],
-					 'cross_st' => $row[50],
-					 'product_price' => $row[292],
-					 'input_date' => $row[93],
-					 'community' => $row[451],
-					 'front_ft' => $row[75], 
-					 'lp_dol' => $row[120], 
+		 'maiin_image'  => $row[124],
+		'taxes' =>  $row[282],
+	        'cross_salet' => $row[50],
+		'product_price' => $row[292],
+	       'input_date' => $row[93],
                 'front_sl_slider'=>'1');
 
             $this->update_metadetails($metaarr, $post_id);
-            $this->setfilevars($row[130], $post_id);
+            $this->setfilevars($row[3], $post_id);
         }
         fclose($handle);
     }
